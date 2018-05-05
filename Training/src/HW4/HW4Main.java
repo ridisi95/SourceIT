@@ -11,11 +11,11 @@ public class HW4Main {
 	public static void main(String []args) {
 		
 // =================================================		<- максимальное значение массива
-////		HW4Methods max = new HW4Methods();                
-//		
-//		int[] usingarr = {1,2,3,2141,2222,54636,9999999};
-//		
-//		System.out.print(HW4MaxValueofArray.Mymethods(usingarr));
+//		HW4Methods max = new HW4Methods();                
+		
+		int[] usingarr = {1,2,3,2141,2222,54636,9999999};
+		
+		System.out.print(HW4MaxValueofArray.Mymethods(usingarr));
 //		
 //		====================================================     <- пустотелый квадрат
 //		HW4Square result = new HW4Square();                  
@@ -35,15 +35,15 @@ public class HW4Main {
 		
 //		====================================================      <- выввести слова в которых более 3 сиволов
 		
-		HW4More3Symbol more3 = new HW4More3Symbol();
-		
-		String thesis = "Today is the right day to Love, Believe, Do and mostly Live.";
-		
-		System.out.println("Before: " + thesis);
-		
-		String endingThesis = more3.More3Symbol(thesis);
-		
-		System.out.println("After: " + endingThesis);
+//		HW4More3Symbol more3 = new HW4More3Symbol();
+//		
+//		String thesis = "Today is the right day to Love, Believe, Do and mostly Live.";
+//		
+//		System.out.println("Before: " + thesis);
+//		
+//		String endingThesis = more3.More3Symbol(thesis);
+//		
+//		System.out.println("After: " + endingThesis);
 		
 	}
 }
