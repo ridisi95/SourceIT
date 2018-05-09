@@ -11,7 +11,7 @@ public class HW4Square {
 			if (i == width && stop != width * 2) {
 				for (int j = 1; j <= height; j++) {
 					System.out.println();
-					for (int u = 1; u <= width; u++) {
+					for (int u = 2; u <= width; u++) {
 						if (u == 1 || u == width) {
 							System.out.print("+");
 						} else {
