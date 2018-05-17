@@ -1,18 +1,11 @@
 package HW6;
 
 public class Caramel extends Candy {
-	private int weight = 7;
-	private int percentOfSugar = 90;
-	
-	
-	public int getWeight() {
-		return weight;
+
+	public Caramel(String nameOfCandy, int weight, int percentOfSugar) {
+		super.weight = weight;
+		super.percentOfSugar = percentOfSugar;
+		super.nameOfCandy = nameOfCandy;
 	}
-
-	public int getPercentOfSugar() {
-		return percentOfSugar;
-	}
-
-
 
 }

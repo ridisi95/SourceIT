@@ -1,5 +1,7 @@
 package HW5;
 
+import java.util.Arrays;
+
 public class Book {
 
 	int id;
@@ -56,37 +58,43 @@ public class Book {
 		return binding;
 	}
 
+	@Override
+	public String toString() { // ink for learn:
+								// http://study-java.ru/uroki-java/formatirovanie-chisel-i-texta-v-java/
+		return String.format(
+				"ID: %d\t title: %30s\t author: %s\t publishingHouse: %s\t dateOfRelease: %d\t pages: %d\t price: %d\t binding: %s",
+				id, title, author, publishingHouse, dateOfRelease, pages, price, binding);
+	}
+
 	public static void showAuthor(Book arr[], String nameofAuthor) {
 		for (int i = 0; i < arr.length; i++) {
 			if (nameofAuthor.equals(arr[i].getAuthor())) {
-				System.out.println(arr[i].id + ", " + arr[i].title + ", " + arr[i].author + ", "
-						+ arr[i].publishingHouse + ", " + arr[i].dateOfRelease + ", " + arr[i].pages + ", "
-						+ arr[i].price + ", " + arr[i].binding);
+				System.out.println(arr[i]);
+
 			}
 		}
-
+		System.out.println();
 	}
 
 	public static void showPublishingHouse(Book arr[], String publishingHouse) {
 		for (int i = 0; i < arr.length; i++) {
 			if (publishingHouse.equals(arr[i].getPublishingHouse())) {
-				System.out.println(arr[i].id + ", " + arr[i].title + ", " + arr[i].author + ", "
-						+ arr[i].publishingHouse + ", " + arr[i].dateOfRelease + ", " + arr[i].pages + ", "
-						+ arr[i].price + ", " + arr[i].binding);
+				System.out.println(arr[i]);
+
 			}
 		}
+		System.out.println();
 
 	}
 
 	public static void showDateOfRelease(Book arr[], int year) {
 		for (int i = 0; i < arr.length; i++) {
 			if (year < arr[i].getDateOfRelease()) {
-				System.out.println(arr[i].id + ", " + arr[i].title + ", " + arr[i].author + ", "
-						+ arr[i].publishingHouse + ", " + arr[i].dateOfRelease + ", " + arr[i].pages + ", "
-						+ arr[i].price + ", " + arr[i].binding);
+				System.out.println(arr[i]);
+
 			}
 		}
-
+		System.out.println();
 	}
 
 }
