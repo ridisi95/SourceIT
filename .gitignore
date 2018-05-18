@@ -1,0 +1,14 @@
+ShildtsBook/
+Follow the white rabbit/
+BlinovsBook/
+.gitignore/
+.metadata/
+.recommenders/
+Git/
+RemoteSystemsTempFiles/
+
+Training/bin/
+Training/.classpath
+Training/.project
+
+
