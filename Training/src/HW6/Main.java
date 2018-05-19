@@ -21,7 +21,7 @@ public class Main {
 
 		Gift.howMutchWeighGift(gift);
 
-		Gift.showMeCandyWithThisSugarPrecent(gift, 75);
+		Gift.showMeCandyWithThisSugarPerecent(gift, 90);
 
 		Gift.showMe—ontentGift(gift);
 

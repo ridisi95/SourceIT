@@ -26,17 +26,17 @@ public class Gift {
 		System.out.println();
 	}
 
-	public static void showMeCandyWithThisSugarPrecent(ArrayList<Candy> arr, int sugarPresent) {
+	public static void showMeCandyWithThisSugarPerecent(ArrayList<Candy> arr, int sugarPercent) {
 		int x = 0;
 		for (int i = 0; i < arr.size(); i++) {
-			if (sugarPresent == arr.get(i).getPercentOfSugar()) {
+			if (sugarPercent == arr.get(i).getPercentOfSugar()) {
 				x++;
 				System.out.println(arr.get(i));
 
 			}
 		}
 		if (x == 0) {
-			System.out.println("Sorry, We not Found candy in gift with " + sugarPresent + " precent of sugar");
+			System.out.println("Sorry, We not Found candy in gift with " + sugarPercent + " precent of sugar");
 		}
 		System.out.println();
 	}
