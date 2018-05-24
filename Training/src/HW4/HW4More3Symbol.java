@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class HW4More3Symbol {
 	public static String More3Symbol(String yourString) {
 
-		String clearedStart = yourString.replaceAll("\\b...\\b|\\W", " ");
+		String clearedStart = yourString.replaceAll("\\b...\\b|\\W", " "); // Learn regex https://www.youtube.com/watch?v=9hLkbhRs7jM
 
 		String clearedEnd = clearedStart.replaceAll("\\b\\s+\\B", "");
 

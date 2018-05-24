@@ -1,6 +1,6 @@
 package HW7;
 
-public class City {
+public class City { // do through Enum
 	String name;
 
 	private class TypeOfStreet {
