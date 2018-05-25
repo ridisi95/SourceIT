@@ -22,12 +22,12 @@ public class FileExpansionOfJava extends SimpleFileVisitor<Path> {
 		}
 	}
 
-	public FileVisitResult visitFile(Path path, BasicFileAttributes attribs) throws IOException { // ========= 2
-		if (String.valueOf(path).endsWith(".java") && path.getNameCount() <= maxDepth) {
-			System.out.println(path);
-		}
-		return FileVisitResult.CONTINUE;
-	}
+//	public FileVisitResult visitFile(Path path, BasicFileAttributes attribs) throws IOException { // ========= 2
+//		if (String.valueOf(path).endsWith(".java") && path.getNameCount() <= maxDepth) {
+//			System.out.println(path);
+//		}
+//		return FileVisitResult.CONTINUE;
+//	}
 
 	// learn filters http://pr0java.blogspot.com/2015/06/8.html
 	public static void main(String[] args) throws IOException {

@@ -5,7 +5,7 @@ public class Shop {
 	private int unitOfGoods;
 	private int providedService;
 
-	private class SmolTextEditor {
+	private class Keeper {
 
 		private Keeper(String nameOfDepartment, int unitOfGoods, int providedService) {
 			Shop.this.nameOfDepartment = nameOfDepartment;
