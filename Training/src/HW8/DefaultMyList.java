@@ -6,6 +6,7 @@ public class DefaultMyList implements MyList {
 	private int size;
 	private int countObj = 0;
 	private Object[] modifiedData;
+	private int count;
 
 	public void add(Object e) {
 
@@ -31,7 +32,7 @@ public class DefaultMyList implements MyList {
 	public boolean remove(Object o) {
 
 		modifiedData = new Object[data.length - 1];
-		int count = -1;
+		count = -1;
 
 		for (int i = 0; i < data.length; i++) {
 
@@ -45,7 +46,7 @@ public class DefaultMyList implements MyList {
 			}
 
 		}
-		
+
 		for (int i = 0; i < data.length; i++) {
 
 			if (!data[i].equals(o)) {
@@ -81,7 +82,23 @@ public class DefaultMyList implements MyList {
 	}
 
 	public boolean containsAll(MyList c) {
-		// TODO Auto-generated method stub
+
+		modifiedData = c.toArray();
+
+		count = 0;
+
+		for (int i = 0; i < data.length; i++) {
+
+			for (int j = 0; j < c.size(); j++) {
+				if (data[i].equals(modifiedData[j])) {
+					count++;
+				}
+			}
+			if (count == modifiedData.length - 1) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 
