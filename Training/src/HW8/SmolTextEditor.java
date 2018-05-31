@@ -13,21 +13,23 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class SmolTextEditor {
-	private static StringBuffer scan() {
-		Scanner text = new Scanner(System.in);
-		System.out.print("Ввидите свой текст: \n");
-		StringBuffer textResult = new StringBuffer();
+	private static StringBuilder scan() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Введите свой текст: \n");
+		StringBuilder textResult = new StringBuilder();
 
+		while (scan.hasNextLine()) {
+			
+			String textStop = scan.nextLine();
+			
+			textResult.append(textStop  + "\n");
+			
+			if( textStop.equals("exit")) {
+				break;
+			}
+
+		}
 		
-		
-		do
-		 {
-			textResult.append(text.nextLine() + "\n");
-
-
-		} while (text.hasNextLine() && !text.nextLine().equals("exit"));
-		System.out.println(textResult);
-
 		return textResult;
 
 	}
@@ -35,9 +37,9 @@ public class SmolTextEditor {
 	static File file = new File("C:\\Users\\Smol\\eclipse-workspace\\Training\\bin\\HW8\\smol editor.txt");
 	static Path start = file.toPath();
 
-	private static void writeNio(StringBuffer textToWrite) throws IOException {
+	private static void writeNio(StringBuilder stringBuilder) throws IOException {
 		try {
-			Files.write(start, textToWrite.toString().getBytes(), CREATE, APPEND);
+			Files.write(start, stringBuilder.toString().getBytes(), CREATE, APPEND);
 		} catch (IOException e) {
 			System.out.println("Do you have a problem?" + e);
 		}
@@ -46,15 +48,10 @@ public class SmolTextEditor {
 
 	private class Statistics {
 
-		// private Statistics(SmolTextEditor arg) {
-		// SmolTextEditor.this.arg = arg;
-		//
-		// }
-
 		private void showText() throws IOException {
 
-			try (Stream<String> stream = Files.lines(start)) { // не понял как работает 2-я форма
-				stream.forEach(System.out::println); // как это работает?
+			try (Stream<String> stream = Files.lines(start)) { 
+				stream.forEach(System.out::println); 
 			}
 			System.out.println("Количество символов включая пробелы: " + file.length());
 
@@ -114,13 +111,13 @@ public class SmolTextEditor {
 	public static void main(String[] args) throws IOException {
 
 		SmolTextEditor.writeNio(scan());
-		 SmolTextEditor ste = new SmolTextEditor();
-		 SmolTextEditor.Statistics stat = ste.createObjectOfStatistics();
-		
-		 stat.showText();
-		 stat.showVowel();
-		 stat.showCountOfWords();
+		SmolTextEditor ste = new SmolTextEditor();
+		SmolTextEditor.Statistics stat = ste.createObjectOfStatistics();
+
+		stat.showText();
+		stat.showVowel();
+		stat.showCountOfWords();
 
 	}
-	// почему вылазит знак ?
+
 }
