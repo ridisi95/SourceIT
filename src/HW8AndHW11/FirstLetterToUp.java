@@ -1,4 +1,4 @@
-package HW8;
+package HW8AndHW11;
  
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

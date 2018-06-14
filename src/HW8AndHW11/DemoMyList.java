@@ -1,66 +1,68 @@
-package HW8;
+package HW8AndHW11;
 
 import java.util.Arrays;
 import java.util.Iterator;
 
 public class DemoMyList {
 	public static void main(String[] args) {
-		DefaultMyList my = new DefaultMyList();
+		DefaultMyList<String> myList = new DefaultMyList<>();
 
 		String str = "my list";
 		String str1 = "your list";
 		
-		int number = 10;
+		String number = "10";
 		String strOutArr = "text of my list";
-		int moon = 1203;
+		String moon = "1203";
+		
+		String math = String.valueOf(Math.PI);
 
-		my.add(str);
-		my.add(number);
-		my.add(Math.PI);
-		my.add(strOutArr);
+		myList.add(str);
+		myList.add(number);
+		myList.add(math);
+		myList.add(strOutArr);
 
-		for(Object o: my) {
+		for(Object o: myList) {
 			System.out.println("Adding to my:  " + o);
 		}
 		System.out.println();
 
-		Boolean bool = my.remove(Math.PI);
+		Boolean bool = myList.remove(math);
 
-		for(Object o: my) {
+		for(Object o: myList) {
 			System.out.println("test of remove():  " + o);
 		}
 		System.out.println();
 
-		Object[] arr = my.toArray();
+		Object[] arr = myList.toArray();
 		System.out.println("test of toArray():  " + Arrays.toString(arr));
 		System.out.println();
 
-		bool = my.contains(Math.PI);
+		bool = myList.contains(math);
 		System.out.println("test of contains():  " + bool);
 		System.out.println();
 
-		DefaultMyList your = new DefaultMyList();
+		DefaultMyList<String> yourList = new DefaultMyList<String>();
 
-		your.add(str1);
-		your.add(Math.PI);
+		yourList.add(str1);
+		yourList.add(math);
 
-		bool = my.containsAll(your);
+		bool = myList.containsAll(yourList);
 		System.out.println("test of containsAll():  " + bool);
 		System.out.println();
 
-		Iterator<Object> iterMy = my.iterator();
+		Iterator<Object> iterMy = myList.iterator();
 		while (iterMy.hasNext()) {
 			System.out.println("Test Iterator of 'my': " + iterMy.next());
 		}
 		System.out.println();
 		
-		Iterator<Object> iterYour = your.iterator();
-		for(Object o : your) {
+		Iterator<Object> iterYour = yourList.iterator();
+		for(Object o : yourList) {
 			System.out.println("Test Iterator of 'your': " + iterYour.next());
 		}
 		System.out.println();
 		
-		ListIterator listIterMy = my.listIterator();
+		ListIterator listIterMy = myList.listIterator();
 		listIterMy.next();
 		listIterMy.set(moon);
 		listIterMy.previous();

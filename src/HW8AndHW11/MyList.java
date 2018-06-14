@@ -1,7 +1,7 @@
-package HW8;
+package HW8AndHW11;
 
-public interface MyList extends Iterable<Object>  {
-	void add(Object e); // appends the specified element to the end of this list
+public interface MyList<E> extends Iterable<Object>  {
+	void add(E e); // appends the specified element to the end of this list
 
 	void clear(); // removes all of the elements from this list
 
@@ -12,7 +12,7 @@ public interface MyList extends Iterable<Object>  {
 
 	int size(); // returns the number of elements in this list
 
-	boolean contains(Object o); // returns true if this list contains the specified element.
+	boolean contains(E o); // returns true if this list contains the specified element.
 
 	boolean containsAll(MyList c); // returns true if this list contains all of the elements of the specified list
 

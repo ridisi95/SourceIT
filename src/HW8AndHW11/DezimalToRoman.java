@@ -1,63 +1,64 @@
-package HW8;
- 
+package HW8AndHW11;
+
 //shotr table of Unicode https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html 
 
-public class DezimalToRomanFinal {
+public class DezimalToRoman {
 
 	private String roman;
 	private int dezimal;
 
-	private DezimalToRomanFinal(String roman, int dezimal) {
+	private DezimalToRoman(String roman, int dezimal) {
 		this.roman = roman;
 		this.dezimal = dezimal;
 	}
 
-	private void setRoman(String roman) {
-		this.roman = roman;
+	final static DezimalToRoman one = new DezimalToRoman("I", 1);
+	final static DezimalToRoman five = new DezimalToRoman("V", 5);
+	final static DezimalToRoman ten = new DezimalToRoman("X", 10);
+	final static DezimalToRoman fifty = new DezimalToRoman("L", 50);
+	final static DezimalToRoman hundred = new DezimalToRoman("C", 100);
+
+	final static DezimalToRoman[] arrOfNumbers = { one, five, ten, fifty, hundred };
+
+	private static String dezimalToRoman(int dezimal) {
+
+		String result = "";
+
+		if (dezimal > 100) {
+			return "More then 100";
+		} else if (dezimal == 100) {
+			return "C";
+		} else if (dezimal > 89) {
+			result += "XC";
+		} else if (dezimal > 49) {
+			result += "L";
+		} else if (dezimal > 39) {
+			result += "XL";
+		}
+
+		while (((int) dezimal / 10) * 10 > DezimalToRoman.romanToDezimal(result)) {
+			result += "X";
+		}
+
+		String units = "";
+
+		for (int i = 0; i < 3; i++) {
+			if (i > 0) {
+				units = (i == 1) ? "IV" : "V";
+			}
+			for (int j = 0; j < 4; j++) {
+				if (!units.contains("IVI") && dezimal == DezimalToRoman.romanToDezimal(result + units)) {
+					return (result + units);
+				}
+				units += "I";
+			}
+		}
+		return result + "IX";
 	}
-
-	private void setDezimal(int dezimal) {
-		this.dezimal = dezimal;
-	}
-
-	final static DezimalToRomanFinal one = new DezimalToRomanFinal("I", 1);
-	final static DezimalToRomanFinal five = new DezimalToRomanFinal("V", 5);
-	final static DezimalToRomanFinal ten = new DezimalToRomanFinal("X", 10);
-	final static DezimalToRomanFinal fifty = new DezimalToRomanFinal("L", 50);
-	final static DezimalToRomanFinal hundred = new DezimalToRomanFinal("C", 100);
-
-	final static DezimalToRomanFinal[] arrOfNumbers = { one, five, ten, fifty, hundred };
-
-	// private static String dezimalToRoman(int dezimal) {S
-	//
-	// Dezimal2 infoKeeper = new Dezimal2(null,0);
-	//
-	//// String[] y = {String.valueOf(dezimal).s,St};
-	//
-	// String y = "";
-	//
-	// int count = 0;
-	//
-	// for(int i = 0; i < dezimal; i ++) {
-	//
-	// while(y.contains("IIII")) {
-	//
-	// if(y.contains("IIII")) {
-	// y = "";
-	// y += arrOfNumbers[0].roman;
-	//
-	// }
-	// if (Dezimal2.romanToDezimal(y) == dezimal) {
-	// return y;
-	// }
-	// }
-	// String result = "мимо";
-	// return result;
-	// }
 
 	private static int romanToDezimal(String roman) {
 
-		DezimalToRomanFinal[] romanModObj = new DezimalToRomanFinal[roman.length()];
+		DezimalToRoman[] romanModObj = new DezimalToRoman[roman.length()];
 		String[] romanMod = roman.split("");
 
 		for (int i = 0; i < romanMod.length; i++) {
@@ -87,10 +88,23 @@ public class DezimalToRomanFinal {
 		return result;
 	}
 
+	// @Override
+	// public String toString() {
+	// return this.dezimalToRoman(dezimal) + " ===> " + this.romanToDezimal(roman) +
+	// " ===> " + this.dezimalToRoman(dezimal);
+	// }
+
 	public static void main(String[] args) {
 
-		// System.out.println(Dezimal2.dezimalToRoman(5));
-		System.out.println(DezimalToRomanFinal.romanToDezimal("LVI"));
+		for (int i = 1; i < 101; i++) {
+
+			System.out.println(DezimalToRoman.dezimalToRoman(i) + " ===> " +
+					+ DezimalToRoman.romanToDezimal(DezimalToRoman.dezimalToRoman(i)) + " ===> "
+					+ DezimalToRoman.dezimalToRoman(i));
+
+		}
+		
+		
 
 	}
 

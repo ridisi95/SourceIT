@@ -1,4 +1,4 @@
-package HW8;
+package HW8AndHW11;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.APPEND;

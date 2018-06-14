@@ -1,18 +1,15 @@
-package HW8;
+package HW8AndHW11;
 
 import java.util.Iterator;
 
-public class DefaultMyList implements MyList, ListIterable {
+public class DefaultMyList<E> implements MyList<E>, ListIterable {
 
-	transient Object[] data = new Object[1];
-	private int size;
+	protected Object[] data = new Object[1];
 	private int countObj = 0;
-	private Object[] modifiedData;
-	private int count;
 
-	public void add(Object e) {
+	public void add(E e) {
 
-		modifiedData = new Object[countObj + 1];
+		Object[] modifiedData = new Object[countObj + 1];
 		for (int i = 0; i < data.length; i++) {
 			modifiedData[i] = data[i];
 		}
@@ -33,8 +30,8 @@ public class DefaultMyList implements MyList, ListIterable {
 
 	public boolean remove(Object o) {
 
-		modifiedData = new Object[data.length - 1];
-		count = -1;
+		Object[] modifiedData = new Object[data.length - 1];
+		int count = -1;
 
 		for (int i = 0; i < data.length; i++) {
 
@@ -71,7 +68,7 @@ public class DefaultMyList implements MyList, ListIterable {
 		return data.length;
 	}
 
-	public boolean contains(Object o) {
+	public boolean contains(E o) {
 
 		for (int i = 0; i < data.length; i++) {
 
@@ -85,9 +82,9 @@ public class DefaultMyList implements MyList, ListIterable {
 
 	public boolean containsAll(MyList c) {
 
-		modifiedData = c.toArray();
+		Object[] modifiedData = c.toArray();
 
-		count = 0;
+		int count = 0;
 
 		for (int i = 0; i < data.length; i++) {
 
