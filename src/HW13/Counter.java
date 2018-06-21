@@ -1,40 +1,53 @@
 package HW13;
 
-public class Counter {
-	public int i;
-	public int j;
+import java.util.concurrent.locks.ReentrantLock;
 
-	public int count1() {
-		return i++;
+public class Counter extends Thread {
+	int i;
+	int j;
+
+	public void incrementI() {
+		i++;
+	};
+	public void incrementJ() {
+		j++;
 	}
 
-	public int count2() {
-		return j++;
-	}
+	public static void main(String[] args) throws InterruptedException {
+		Counter counter = new Counter();
 
-	public static void main(String[] args) {
-		MyThread thread1 = new MyThread();
-		MyThread thread2 = new MyThread();
-		MyThread thread3 = new MyThread();
-
+		Waiter waiter1 = new Waiter(counter);
+		Thread thread1 = new Thread(waiter1);
 		thread1.start();
+
+		Waiter waiter2 = new Waiter(counter);
+		Thread thread2 = new Thread(waiter2);
 		thread2.start();
+
+		Waiter waiter3 = new Waiter(counter);
+		Thread thread3 = new Thread(waiter3);
 		thread3.start();
 	}
 }
 
-class MyThread extends Thread {
-	Counter counter = new Counter();
+class Waiter implements Runnable {
+	private Counter counter;
+	public Waiter(Counter counter) {
+		this.counter = counter;
+	}
 
-	@Override
-	public synchronized void run() {
+	private static ReentrantLock lock = new ReentrantLock();
+
+	public void run() {
 		try {
 			while (true) {
-				System.out.println(this.getName() + " counter1 = " + counter.i + " counter2 " + counter.j + " "
+				lock.lock();
+				System.out.println(Thread.currentThread().getName() + " i = " + counter.i + " j = " + counter.j + " "
 						+ String.valueOf(counter.i == counter.j));
-				counter.count1();
-				Thread.sleep(10);
-				counter.count2();
+				counter.incrementI();
+				Thread.sleep(1000);
+				counter.incrementJ();
+				lock.unlock();
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
