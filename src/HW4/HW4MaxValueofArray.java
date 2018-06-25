@@ -1,7 +1,7 @@
 package HW4;
 
 public class HW4MaxValueofArray {
-	public static int Mymethods(int somearr[]) {
+	public int Mymethods(int somearr[]) {
 
 		int max = 0;
 

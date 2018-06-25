@@ -96,15 +96,17 @@ public class DezimalToRoman {
 
 	public static void main(String[] args) {
 
-		for (int i = 1; i < 101; i++) {
-
-			System.out.println(DezimalToRoman.dezimalToRoman(i) + " ===> " +
-					+ DezimalToRoman.romanToDezimal(DezimalToRoman.dezimalToRoman(i)) + " ===> "
-					+ DezimalToRoman.dezimalToRoman(i));
-
-		}
+//		for (int i = 1; i < 101; i++) {
+//
+//			System.out.println(DezimalToRoman.dezimalToRoman(i) + " ===> " +
+//					+ DezimalToRoman.romanToDezimal(DezimalToRoman.dezimalToRoman(i)) + " ===> "
+//					+ DezimalToRoman.dezimalToRoman(i));
+//
+//		}
 		
+		System.out.println(DezimalToRoman.dezimalToRoman(32));
 		
+		System.out.println(DezimalToRoman.romanToDezimal("LXXXI"));
 
 	}
 

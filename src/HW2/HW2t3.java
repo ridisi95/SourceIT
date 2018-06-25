@@ -12,11 +12,12 @@ public class HW2t3 {
 		double pi = 3.1415926535, D, L;
 		double r = Double.parseDouble(radiusstr);
 
-		L = 2 * pi * r;
+		L = 2 * Math.PI * r;
 
-		System.out.println("Ñircumference is " + L + " cm");
 		// System.out.println("pi " + pi);
 		// System.out.println("r " + r);
 		//
 	}
 }
+
+
