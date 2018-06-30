@@ -1,5 +1,7 @@
 package HW12;
 
+import java.util.Arrays;
+
 public class SimpleStringCalculator {
 
 	public int add(String numbers) {
@@ -10,16 +12,13 @@ public class SimpleStringCalculator {
 			return 0;
 			
 		} else if (numbers.contains("-")) {
-			String[] substringMinus = numbers.replaceAll("[^-\\d]", "").replaceAll("\\B\\d|^\\d|-+$", "")
-					.replaceAll("\\D+", "-").split("");
+			String[] substringMinus = numbers.replaceAll("(^\\d|[^-\\d]).+?(?=-|$)", "").replaceAll("\\D+", "--").split("\\b-");
+			
 			try {
 				throw new Exception("negatives not allowed");
 			} catch (Exception e) {
 				e.printStackTrace();
-				for (int i = 0; i < substringMinus.length; i += 2) {
-					System.err.print(substringMinus[i] + substringMinus[i + 1] + ", ");
-				};
-				System.out.println();
+				System.err.println(Arrays.toString(substringMinus));
 			}
 			
 		} else {
@@ -33,7 +32,7 @@ public class SimpleStringCalculator {
 
 	public static void main(String[] args) {
 		SimpleStringCalculator ssc = new SimpleStringCalculator();
-		String str = "-1238mc21u41uc-123c12x1-2";
+		String str = "-1238mc21u41uc123c1-123123-213141-2x12";
 		int x = ssc.add(str);
 		System.out.println(x);
 	}
