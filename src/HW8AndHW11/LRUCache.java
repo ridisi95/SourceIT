@@ -92,7 +92,7 @@ class LRUCache {
 		lruCahe.put(2, 20);
 		lruCahe.put(3, 30);
 
-		System.out.println(lruCahe.get(1));
+		System.out.println(lruCahe.get(2));
 
 	}
 }

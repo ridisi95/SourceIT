@@ -13,7 +13,7 @@ public class FrequencyOfRepetitions {
 
 	public static void main(String[] args) throws IOException {
 
-		try (Stream<String> stream = Files.lines(Paths.get("src/HW8/smol editor.txt"))) {
+		try (Stream<String> stream = Files.lines(Paths.get("src/HW8AndHW11/smol editor.txt"))) {
 			;
 
 			String joined = String.valueOf(
