@@ -34,7 +34,7 @@ public class SmolTextEditor {
 
 	}
 
-	static File file = new File("C:\\Users\\Smol\\eclipse-workspace\\Training\\bin\\HW8\\smol editor.txt");
+	static File file = new File("src/HW8AndHW11/smol editor.txt");
 	static Path start = file.toPath();
 
 	private static void writeNio(StringBuilder stringBuilder) throws IOException {

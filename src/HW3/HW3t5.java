@@ -6,20 +6,20 @@ import java.util.Scanner;
 public class HW3t5 {
 	public static void main(String[] args) {
 		Scanner scwidth = new Scanner(System.in);
-		System.out.print("                 Øèðèíà ñòðîêè: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: "); ////213 21321 312321312321
 		int recivedwidth = scwidth.nextInt();
 
 		Scanner scheight = new Scanner(System.in);
-		System.out.print("                Âûñîòà ñòîëáöà: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 		int recivedheight = scheight.nextInt();
 
 		Scanner scturn = new Scanner(System.in);
-		System.out.print("Ãðàäóñ ïîâîðîòà (0,90,180,270): ");
-		int recivedådturn = scturn.nextInt();
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (0,90,180,270): ");
+		int recivedï¿½dturn = scturn.nextInt();
 
 		int[][] mass = new int[recivedheight][recivedwidth];
 
-		if (recivedådturn == 90) {
+		if (recivedï¿½dturn == 90) {
 
 			for (int i = recivedwidth - 1; i >= 0; i--) {
 				for (int j = 0; j < recivedheight; j++) {
@@ -31,7 +31,7 @@ public class HW3t5 {
 				}
 
 			}
-		} else if (recivedådturn == 180) {
+		} else if (recivedï¿½dturn == 180) {
 			for (int i = recivedheight - 1; i >= 0; i--) {
 				for (int j = recivedwidth - 1; j >= 0; j--) {
 					if (i == recivedheight - 1) {
@@ -42,7 +42,7 @@ public class HW3t5 {
 				}
 
 			}
-		} else if (recivedådturn == 270) {
+		} else if (recivedï¿½dturn == 270) {
 			for (int i = 0; i < recivedwidth; i++) {
 				for (int j = recivedheight - 1; j >= 0; j--) {
 					if (0 == i) {
