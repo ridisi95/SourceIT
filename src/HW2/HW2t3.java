@@ -4,19 +4,13 @@ import java.util.Scanner;
 
 public class HW2t3 {
 	public static void main(String[] args) {
-		Scanner radiusreceived = new Scanner(System.in);
-
+		Scanner scannedRadius = new Scanner(System.in);
 		System.out.print("Please, enter side A: ");
-		String radiusstr = radiusreceived.nextLine();
+		String radius = scannedRadius.nextLine();
 
-		double pi = 3.1415926535, D, L;
-		double r = Double.parseDouble(radiusstr);
+		Double circumference = 2 * Math.PI * Double.parseDouble(radius);
 
-		L = 2 * Math.PI * r;
-
-		// System.out.println("pi " + pi);
-		// System.out.println("r " + r);
-		//
+		System.out.println("Circumference Of Circle equals" + circumference);
 	}
 }
 
