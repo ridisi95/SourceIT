@@ -2,7 +2,7 @@ package HW2;
 
 import java.util.Scanner;
 
-public class HW2t2 {
+public class TriangleAreaCalculator {
 	public static void main(String[] args) {
 		Scanner sideA = new Scanner(System.in);
 		Scanner sideB = new Scanner(System.in);

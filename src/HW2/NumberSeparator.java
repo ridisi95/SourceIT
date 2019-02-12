@@ -2,7 +2,7 @@ package HW2;
 
 import java.util.Scanner;
 
-public class HW2t1 {
+public class NumberSeparator {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
