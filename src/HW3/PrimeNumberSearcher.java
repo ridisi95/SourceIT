@@ -23,6 +23,5 @@ public class PrimeNumberSearcher {
 				System.out.println(i);
 			}
 		}
-
 	}
 }
