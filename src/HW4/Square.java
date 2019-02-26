@@ -3,12 +3,9 @@ package HW4;
 public class Square {
 	public static void drawSquare(int width, int height) {
 
-		int interrupter = 0;
-
-		for (int i = 1; i <= width; i++) {
+		for (int i = 1; i <= width * 2; i++) {
 			System.out.print("+");
-			interrupter++;
-			if (i == width && interrupter != width * 2) {
+			if (i == width) {
 				for (int j = 1; j < height - 1; j++) {
 					System.out.println();
 					for (int u = 1; u <= width; u++) {
@@ -20,12 +17,11 @@ public class Square {
 					}
 				}
 				System.out.println();
-				i = 0;
 			}
 		}
 	}
 
 	public static void main(String ... args) {
-		drawSquare(10,5);
+		drawSquare(5,5);
 	}
 }
