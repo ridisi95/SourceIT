@@ -3,13 +3,16 @@ package HW4;
 public class Square {
 	public static void drawSquare(int width, int height) {
 
-		for (int i = 1; i <= width * 2; i++) {
+		width -= 1;
+		height -= 2;
+
+		for (int i = 0; i < (width + 1) * 2; i++) {
 			System.out.print("+");
 			if (i == width) {
-				for (int j = 1; j < height - 1; j++) {
+				for (int j = 0; j < height; j++) {
 					System.out.println();
-					for (int u = 1; u <= width; u++) {
-						if (u == 1 || u == width) {
+					for (int u = 0; u <= width; u++) {
+						if (u == 0 || u == width) {
 							System.out.print("+");
 						} else {
 							System.out.print(" ");
@@ -22,6 +25,6 @@ public class Square {
 	}
 
 	public static void main(String ... args) {
-		drawSquare(5,5);
+		drawSquare(5,7);
 	}
 }
