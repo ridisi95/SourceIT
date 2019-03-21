@@ -4,8 +4,8 @@ public class Snake {
 
 	int count;
 
-	int Y = 4;
-	int X = 6;
+	int Y = 5;
+	int X = 10;
 
 	int yMax = Y - 1;
 	int yMin;

@@ -9,7 +9,7 @@ import HW6.Candy;
 
 public class Gift {
 
-	public static void showMe—ontentGift(ArrayList<Candy> arr) {
+	public static void showMeontentGift(ArrayList<Candy> arr) {
 
 		for (Candy i : arr) {
 			System.out.println(i);

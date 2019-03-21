@@ -23,7 +23,7 @@ public class Main {
 
 		Gift.showMeCandyWithThisSugarPerecent(gift, 90);
 
-		Gift.showMe—ontentGift(gift);
+//		Gift.showMeontentGift(gift);
 
 	}
 }
