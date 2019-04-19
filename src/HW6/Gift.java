@@ -1,43 +1,34 @@
 package HW6;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-
-import HW5.Book;
-import HW6.Candy;
+import java.util.Collections;
+import java.util.List;
 
 public class Gift {
 
-	public static void showMe—ontentGift(ArrayList<Candy> arr) {
+    private List<Candy> candies = new ArrayList();
 
-		for (Candy i : arr) {
-			System.out.println(i);
-		}
-		System.out.println();
-	}
+    public void showMeContent() {
+        candies.stream().forEach(x -> System.out.println(x));
+        System.out.println();
+    }
 
-	public static void howMutchWeighGift(ArrayList<Candy> arr) {
-		int result = 0;
-		for (int i = 0; i < arr.size(); i++) {
-			result += arr.get(i).getWeight();
-		}
-		System.out.println("Weigh gift is: " + result);
-		System.out.println();
-	}
+    public void showWeight() {
+        int sum = candies.stream().mapToInt(x -> x.getWeight()).sum();
+        System.out.println("Gift weight is " + sum);
+        System.out.println();
+    }
 
-	public static void showMeCandyWithThisSugarPerecent(ArrayList<Candy> arr, int sugarPercent) {
-		int x = 0;
-		for (int i = 0; i < arr.size(); i++) {
-			if (sugarPercent == arr.get(i).getPercentOfSugar()) {
-				x++;
-				System.out.println(arr.get(i));
+    public void showCandyWhichHasTheSameSugarPerecent(int sugarPercent) {
+        candies.stream().filter(x -> x.getPercentOfSugar() == sugarPercent).forEach(System.out::println);
+        System.out.println();
+    }
 
-			}
-		}
-		if (x == 0) {
-			System.out.println("Sorry, We not Found candy in gift with " + sugarPercent + " precent of sugar");
-		}
-		System.out.println();
-	}
+    public void putCandy(Candy candy) {
+        this.candies.add(candy);
+    }
+
+    public void sortCandies() {
+        Collections.sort(candies);
+    }
 }
