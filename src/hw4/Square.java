@@ -1,4 +1,4 @@
-package HW4;
+package hw4;
 
 public class Square {
 	public static void drawSquare(int width, int height) {

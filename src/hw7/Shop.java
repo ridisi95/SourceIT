@@ -1,4 +1,4 @@
-package HW7;
+package hw7;
 
 public class Shop {
 	private String nameOfDepartment;

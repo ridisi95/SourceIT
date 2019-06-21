@@ -1,7 +1,6 @@
-package HW3;
+package hw3;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class ArraysRandomizer {
 	public static void main(String[] args) {

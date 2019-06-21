@@ -1,4 +1,4 @@
-package HW5;
+package hw5;
 
 import java.util.ArrayList;
 import java.util.List;

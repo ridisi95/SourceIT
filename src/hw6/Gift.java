@@ -1,4 +1,4 @@
-package HW6;
+package hw6;
 
 import java.util.ArrayList;
 import java.util.Collections;
