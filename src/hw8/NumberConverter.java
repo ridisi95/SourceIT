@@ -1,19 +1,27 @@
 package hw8;
 
-//shotr table of Unicode https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html 
+//short table of Unicode https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
+
+import com.sun.deploy.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NumberConverter {
 
-    final Number one = new Number("I", 1);
-    final Number five = new Number("V", 5);
-    final Number ten = new Number("X", 10);
-    final Number fifty = new Number("L", 50);
-    final Number hundred = new Number("C", 100);
+    private static final String ONE_ROMAN = "I";
+    private static final String FIVE_ROMAN = "V";
+    private static final String TEN_ROMAN = "X";
+    private static final String FIFTY_ROMAN = "L";
+    private static final String ONE_HUNDRED_ROMAN = "C";
 
-    final Number[] arrOfNumbers = {one, five, ten, fifty, hundred};
+    private final Number ONE_NUMBER = new Number(ONE_ROMAN, 1);
+    private final Number FIVE_NUMBER = new Number(FIVE_ROMAN, 5);
+    private final Number TEN_NUMBER = new Number(TEN_ROMAN, 10);
+    private final Number FIFTY_NUMBER = new Number(FIFTY_ROMAN, 50);
+    private final Number ONE_HUNDRED_NUMBER = new Number(ONE_HUNDRED_ROMAN, 100);
+
+    final Number[] arrOfNumbers = {ONE_NUMBER, FIVE_NUMBER, TEN_NUMBER, FIFTY_NUMBER, ONE_HUNDRED_NUMBER};
 
     private String convertDecimalToRoman(int decimal) {
         String result = "";
@@ -21,33 +29,33 @@ public class NumberConverter {
         if (decimal > 100) {
             return "More then 100";
         } else if (decimal == 100) {
-            return "C";
+            return ONE_HUNDRED_ROMAN;
         } else if (decimal > 89) {
-            result += "XC";
+            result += TEN_ROMAN + ONE_HUNDRED_ROMAN;
         } else if (decimal > 49) {
-            result += "L";
+            result += FIFTY_ROMAN;
         } else if (decimal > 39) {
-            result += "XL";
+            result += TEN_ROMAN + FIFTY_ROMAN;
         }
 
         while ((decimal / 10) * 10 > convertRomanToDecimal(result)) {
-            result += "X";
+            result += TEN_ROMAN;
         }
 
         String units = "";
 
         for (int i = 0; i < 3; i++) {
             if (i > 0) {
-                units = (i == 1) ? "IV" : "V";
+                units = (i == 1) ? ONE_ROMAN + FIVE_ROMAN : FIVE_ROMAN;
             }
             for (int j = 0; j < 4; j++) {
-                if (!units.contains("IVI") && decimal == convertRomanToDecimal(result + units)) {
+                if (!units.contains(ONE_ROMAN + FIVE_ROMAN + ONE_ROMAN) && decimal == convertRomanToDecimal(result + units)) {
                     return (result + units);
                 }
-                units += "I";
+                units += ONE_ROMAN;
             }
         }
-        return result + "IX";
+        return result + ONE_ROMAN + TEN_NUMBER;
     }
 
     private int convertRomanToDecimal(String roman) {

@@ -70,6 +70,5 @@ public class DemoMyList {
 		while (listIterMy.hasNext()) {
 			System.out.println("Test ListIterator of 'my': " + listIterMy.next());
 		}
-		
 	}
 }

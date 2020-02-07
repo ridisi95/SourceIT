@@ -8,7 +8,6 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 	private int countObj = 0;
 
 	public void add(E e) {
-
 		Object[] modifiedData = new Object[countObj + 1];
 		for (int i = 0; i < data.length; i++) {
 			modifiedData[i] = data[i];
@@ -19,71 +18,56 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 	}
 
 	public Object get(int index) {
-
 		return data[index];
 	}
 
 	public void clear() {
-
 		data = new Object[1];
 	}
 
 	public boolean remove(Object o) {
-
 		Object[] modifiedData = new Object[data.length - 1];
 		int count = -1;
 
 		for (int i = 0; i < data.length; i++) {
-
 			if (data[i].equals(o)) {
-
 				count++;
 			}
 
 			if (count == -1 && i == data.length - 1) {
 				return false;
 			}
-
 		}
 
 		for (int i = 0; i < data.length; i++) {
-
 			if (!data[i].equals(o)) {
 				modifiedData[count] = data[i];
 				count++;
 			}
-
 		}
 		data = modifiedData;
 		return true;
 	}
 
 	public Object[] toArray() {
-
 		return data;
 	}
 
 	public int size() {
-
 		return data.length;
 	}
 
 	public boolean contains(E o) {
-
 		for (int i = 0; i < data.length; i++) {
-
 			if (data[i].equals(o)) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
 	public boolean containsAll(MyList c) {
-
 		Object[] modifiedData = c.toArray();
-
 		int count = 0;
 
 		for (int i = 0; i < data.length; i++) {
@@ -97,7 +81,6 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -106,23 +89,19 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 	}
 
 	private class IteratorImpl implements Iterator<Object> {
-
 		int index;
 		int count;
 
 		public boolean hasNext() { // returns true if the iteration has more elements
-
 			return (index < data.length) ? true : false;
 		}
 
 		public Object next() { // returns the next element in the iteration
 			count = 0;
 			return (hasNext()) ? data[index++] : null;
-
 		}
 
-		public void remove() { // removes from the underlying collection the last element returned by this
-								// iterator
+		public void remove() { // removes from the underlying collection the last element returned by this iterator
 			if (count == 0) {
 				DefaultMyList.this.remove(data[index]);
 				count++;
@@ -130,7 +109,6 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 				throw new IllegalStateException();
 			}
 		}
-
 	}
 
 	public ListIterator listIterator() {
@@ -140,7 +118,7 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 	private class ListIteratorImpl extends IteratorImpl implements ListIterator {
 
 		public boolean hasPrevious() {
-			return (index > 0) ? true : false;
+			return (index > 0);
 		}
 
 		public Object previous() {
@@ -149,17 +127,12 @@ public class DefaultMyList<E> implements MyList<E>, ListIterable {
 		}
 
 		public void set(Object e) {
-
 			if (count == 0) {
 				data[index] = e;
 				count++;
 			} else {
 				throw new IllegalStateException();
 			}
-
 		}
 	}
 }
-
-
-
